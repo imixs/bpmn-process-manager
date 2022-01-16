@@ -90,7 +90,32 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-release-plugin</artifactId>
 			</plugin>
-
+			
+			
+			<!-- Wildfly Integration 
+			     See: https://docs.wildfly.org/wildfly-maven-plugin/index.html
+			-->
+			<plugin>
+				<groupId>org.wildfly.plugins</groupId>
+				<artifactId>wildfly-maven-plugin</artifactId>
+				<version>2.1.0.Final</version>
+				<executions>
+                    <execution>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>deploy</goal>
+                        </goals>
+                    </execution>
+                </executions>
+				<configuration>
+				    <username>admin</username>
+   					<password>adminadmin</password>
+					<server-args>
+						<!-- activate microprofile -->
+						<server-arg>-c=standalone-microprofile.xml</server-arg>
+					</server-args>
+				</configuration>
+			</plugin>
 		</plugins>
 
 		<finalName>bpmn-process-manager</finalName>
