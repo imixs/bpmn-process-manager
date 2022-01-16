@@ -33,11 +33,11 @@ import java.nio.file.AccessDeniedException;
 import java.util.Optional;
 import java.util.logging.Logger;
 
-import javax.annotation.PostConstruct;
-import javax.ejb.LocalBean;
-import javax.ejb.Singleton;
-import javax.ejb.Startup;
-import javax.inject.Inject;
+import jakarta.annotation.PostConstruct;
+
+import jakarta.ejb.Singleton;
+import jakarta.ejb.Startup;
+import jakarta.inject.Inject;
 
 import org.eclipse.microprofile.config.inject.ConfigProperty;
  
@@ -50,7 +50,7 @@ import org.eclipse.microprofile.config.inject.ConfigProperty;
  */
 @Startup
 @Singleton
-@LocalBean
+//@LocalBean
 public class SetupService {
     public static String SETUP_OK = "OK";
     public static String MODEL_INITIALIZED = "MODEL_INITIALIZED";

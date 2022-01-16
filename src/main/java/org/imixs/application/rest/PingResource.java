@@ -2,9 +2,9 @@ package org.imixs.application.rest;
 
 import java.util.logging.Logger;
 
-import javax.inject.Inject;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
+import jakarta.inject.Inject;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
 
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.imixs.bpmn.manager.keystore.SetupService;
