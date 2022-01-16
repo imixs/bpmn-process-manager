@@ -1,0 +1,425 @@
+/* W3.CSS 4.10 February 2018 by Jan Egil and Borge Refsnes */
+html {
+	box-sizing: border-box;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+
+body, html {
+	font-family: 'Open Sans', sans-serif;
+	text-rendering: optimizeLegibility !important;
+	-webkit-font-smoothing: antialiased !important;
+	color: #5a5a5a;
+}
+
+.ui-widget {
+	font-size: 1em;
+}
+
+.ui-button {
+	background: #263544;
+	color: #fff !important;
+	font-weight: normal !important;
+}
+
+#imixs-header {
+	position: fixed;
+	z-index: 500;
+	width: 100%;
+	background-color: #263544;
+	box-shadow: 0px 5px 15px -10px #263544;
+	color: #eee;
+	height: 120px;
+	width: 100%;
+	white-space: nowrap;
+	display: flex;
+	flex-wrap: wrap;
+	padding-left: 20px;
+}
+
+#imixs-header a {
+	color: #e1e7ec;
+	text-decoration: none;
+}
+
+#imixs-header .container {
+	xxflex-direction: row;
+	xxflex-grow: 4;
+	
+	width: 33.3333%;
+}
+
+#imixs-header .container.title a {
+	font-weight: bold;
+	font-size: 1.2em;
+	color: #FCB802;
+}
+
+#imixs-header .typcn {
+	font-size: 1.5rem;
+	margin-right: 10px;
+}
+
+#imixs-header .searchbox {
+	padding: 0;
+}
+
+#imixs-header .searchbox input {
+	margin-right: 10px;
+	width: 75%;
+}
+
+#imixs-header .linkbox ul li {
+	list-style: none;
+	margin-right: 20px;
+	display: inline;
+	line-height: 2.5em;
+}
+
+#imixs-header .linkbox ul li a {
+	color: #FCB802;
+}
+#imixs-header .linkbox ul li a:hover {
+	text-decoration: underline;
+}
+
+#imixs-content {
+	padding: 150px 20px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	padding-left: 20px;
+}
+
+#imixs-content .container {
+	
+	
+	flex-grow: 1;
+	border: 1px #ccc solid;
+	box-shadow: 5px 5px 10px -10px #1c3c5e;
+	padding: 10px;
+	margin: 10px; /* and that, will result in a 10px gap */
+}
+
+#imixs-content .sub-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;	
+}
+
+#imixs-content .container h2 {
+font-size: 1.5em;
+}
+
+#imixs-content .sub-container .sub-container-box {
+	flex-grow: 1;
+	border-left: 1px #FCB802 solid;
+	padding: 10px;
+}
+
+#imixs-content .sub-container .sub-container-box:first-child {
+    border: none;
+}
+
+#imixs-content .sub-container .sub-container-box .typcn {
+	margin-right:10px;
+}
+#imixs-content .sub-container .sub-container-box h2 {
+font-size: 1.5em;
+}
+
+#imixs-content a.imixs-button {
+	color: inherit;
+}
+
+#imixs-content a.imixs-button:hover {
+	color: #fff;
+}
+
+#imixs-content.loading {
+	overflow: hidden;
+}
+
+#imixs-content.loading .imixs-wait {
+	display: block;
+}
+
+#imixs-footer {
+	width: 100%;
+	padding: 10px 30px 10px 210px;
+	text-align: right;
+	border-top: 2px solid #e8e8e8;
+}
+
+#imixs-footer a {
+	color: inherit;
+}
+
+.content {
+	
+}
+
+.container .typcn {
+	margin-right: 10px;
+}
+
+.imixs-date {
+	width: 140px !important;
+	background: url(./calendar_14.png) no-repeat scroll left center white
+		!important;
+	background-position-x: left;
+	background-position-y: center;
+	background-position: 6px 8px, center !important;
+	padding-left: 28px !important;
+}
+
+.main-container {
+	padding: 16px 20px;
+}
+
+.form-section {
+	display: none;
+}
+
+.imixs-form h3 {
+	border-bottom: 1px solid #ddd;
+	line-height: 2em;
+}
+
+button, input[type="button"], input[type="submit"], .button, a.button,
+	.imixs-button {
+	background: #263544;
+	color: #fff !important;
+	font-weight: normal !important;
+}
+
+a.button {
+	padding: 0.15em 0.75em;
+	border-radius: 3px;
+}
+
+input[type="button"]:hover, input[type="submit"]:hover, .button:hover, a.button:hover,
+	.imixs-button:hover {
+	background: #1c3c5e;
+	color: #ddd !important;
+}
+
+input[type="button"]:active, input[type="submit"]:active, a.button:active,
+	a.button:focus, input[type="button"]:focus, input[type="submit"]:focus
+	{
+	background: #31b1dc;
+	color: #ddd !important;
+}
+
+/* tootip */
+span.tooltip:hover {
+	cursor: help;
+	position: relative
+}
+
+span.tooltip span.tip {
+	display: none
+}
+
+span.tooltip:hover span.tip {
+	display: block;
+	z-index: 100;
+	left: -285px;
+	width: 300px;
+	position: absolute;
+	top: 16px;
+	padding: 10px;
+	margin: 10px;
+	text-decoration: none;
+	font-size: 0.85rem;
+	background-color: #ffffff;
+	border-radius: 5px;
+	-webkit-box-shadow: 0 0 5px 0 rgba(43, 43, 43, .1), 0 11px 6px -7px
+		rgba(43, 43, 43, .1);
+	box-shadow: 0 0 5px 0 rgba(43, 43, 43, .1), 0 11px 6px -7px
+		rgba(43, 43, 43, .1);
+	border: 1px solid #CCC;
+	margin-bottom: 30px;
+	-webkit-transition: all .3s ease-in-out;
+	transition: all .3s ease-in-out;
+}
+
+.imixs-form-section, .imixs-form-section-2, .imixs-form-section-3 {
+	margin-top: 30px;
+}
+
+/* --- Imixs-Tabs ---------------------------------- */
+.imixs-form .imixs-body .imixs-tabs {
+	
+}
+
+.imixs-tabs.ui-tabs.ui-corner-all.ui-widget.ui-widget-content {
+	border: none;
+}
+
+.imixs-tabs .ui-tabs-nav {
+	background: none;
+	border: none;
+}
+
+.imixs-tabs .ui-tabs-panel {
+	padding: 1em 0;
+}
+
+.imixs-tabs .ui-tabs-nav .ui-state-default {
+	background: none;
+	border: none;
+	border-bottom: 2px solid #FFF;
+	font-size: 1.3rem;
+	margin-bottom: -1px;
+}
+
+.imixs-tabs .ui-tabs-nav .ui-state-default:hover {
+	background: none;
+	border: none;
+	border-bottom: 2px solid #206B87;
+	opacity: 0.70;
+}
+
+.imixs-tabs .ui-tabs-nav .ui-state-default a {
+	color: #999;
+	font-size: 1.3rem;
+	padding: 10px 10px 10px 0;
+	margin-bottom: 0px;
+	padding-bottom: 11px;
+}
+
+.imixs-tabs .ui-tabs-nav .ui-state-default a:hover {
+	color: #206B87;
+}
+
+.imixs-tabs .ui-tabs-nav .ui-state-focus {
+	border: none;
+}
+
+.imixs-tabs .ui-tabs-nav .ui-state-active {
+	border-bottom: 2px solid #206B87;
+}
+
+.imixs-tabs .ui-tabs-nav .ui-state-active a {
+	color: #206B87;
+	outline: none;
+}
+
+.code {
+	background-color: #2B2717;
+	color: #BDBCB8;
+	font-family: Consolas, "Courier New", monospace;
+	font-size: 14px;
+	margin: 8px 0px;
+	max-height: 312px;
+	overflow: auto;
+	padding: 16px;
+}
+
+input[type="text"]:focus, input[type="password"]:focus, textarea:focus,
+	select:focus {
+	border: 1px solid #145267;
+	border-radius: 3px;
+}
+
+table {
+	font-size: 14px;
+}
+
+th {
+	font-weight: bold;
+}
+
+table, td, th {
+	border: none;
+	background-color: #fff !important;
+	color: #333 !important;
+	padding: 4px;
+
+}
+
+input[type="button"]:hover, input[type="submit"]:hover, .button:hover, a.button:hover, .imixs-button:hover {
+    background: #145267;
+    color: #ddd !important;
+}
+
+
+
+.imixsdatatable td input {
+	border: none;
+}
+
+.imixsdatatable  td {
+	border: 1px solid #ddd;
+}
+
+.imixsdatatable  td.ui-state-hover {
+	border: 1px solid #ddd;
+}
+
+.imixsdatatable tbody tr:HOVER td {
+	
+	background-color: #efefef !important;
+	
+}
+
+.imixsdatatable tbody tr:HOVER a {
+	color: #428bca;
+}
+
+.imixsdatatable tbody tr:hover {
+	border-left: 4px solid #428bca;
+}
+
+.imixsdatatable tbody tr td:first-child {
+	padding-left: 4px;
+}
+
+.imixsdatatable tbody tr:hover td:first-child {
+	padding-left: 3px;
+}
+
+
+
+.monitoring-pane {
+	position: relative;
+	top: -80px;
+	max-height: 180px;
+}
+
+
+.pull-right {
+	float: right;
+}
+
+/* Ajax loader */
+.imixs-wait {
+	display: none;
+	position: fixed;
+	z-index: 1000;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background: rgba(255, 255, 255, .8) url('../icons/ajax-loader.gif') 50%
+		50% no-repeat;
+}
+
+.loading {
+	background: rgba(255, 255, 255, .8) url(../icons/ajax-loader.gif) 50%
+		50% no-repeat;
+	color: #ccc;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit
+}
+
+/* Responsive */
+@media screen and (max-width: 1200px) {
+}
+
+@media screen and (max-width: 700px) {
+	
+}

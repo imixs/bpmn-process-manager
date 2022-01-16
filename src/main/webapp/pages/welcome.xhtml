@@ -1,0 +1,78 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:i="http://xmlns.jcp.org/jsf/composite/imixs"
+	template="/layout/template.xhtml">
+
+	<ui:define name="content">
+
+
+		<script type="text/javascript">
+			/*<![CDATA[*/
+				
+			// set json objects with monitoring datasets 
+			
+			$(document).ready(
+							function() {
+						
+							
+								
+							});
+			
+			/*]]>*/
+		</script>
+
+
+		<div class="container" style="display: flex;">
+
+			<div style="flex-grow: 1;">
+				<h2>Devices</h2>
+				
+				<!-- workflow View -->
+				<div class="monitoring-pane">
+					<canvas id="deviceChart"></canvas>
+				</div>
+			</div>
+
+			<div style="flex-grow: 1; text-align: center;">
+				<span style="font-size: 4em; font-weight: bold; line-height: 1em;">0</span>
+			</div>
+
+		</div>
+
+		<div class="container" style="display: flex;">
+
+			<div style="flex-grow: 1;">
+				<h2>Total Events</h2>
+				<!-- workflow View -->
+				<div class="monitoring-pane">
+					<canvas id="workflowChart"></canvas>
+				</div>
+			</div>
+
+			<div style="flex-grow: 1; text-align: center;">
+				<span style="font-size: 4em; font-weight: bold; line-height: 1em;">0</span>
+			</div>
+
+		</div>
+
+
+		<div class="container">
+
+			<h2>Help</h2>
+
+		</div>
+
+		<div class="container" style="width: 100%;">
+
+			some data
+
+
+		</div>
+
+
+
+	</ui:define>
+</ui:composition>

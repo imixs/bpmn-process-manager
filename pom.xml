@@ -1,0 +1,128 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.imixs.bpmn</groupId>
+	<artifactId>bpmn-process-manager</artifactId>
+	<packaging>war</packaging>
+	<name>bpmn-process-manager</name>
+	<version>0.0.1-SNAPSHOT</version>
+	<description>BPMN 2.0 Process Manager</description>
+	<url>https://github.com/rsoika/jakartaee-initializer</url>
+	<organization>
+		<name>Imixs Software Solutions GmbH</name>
+		<url>http://www.imixs.com</url>
+	</organization>
+	<inceptionYear>2021</inceptionYear>
+	<developers>
+		<developer>
+			<id>rsoika</id>
+			<name>Ralph Soika</name>
+			<email>ralph.soika@imixs.com</email>
+			<url>https://github.com/rsoika/</url>
+			<organization>Imixs Software Solutions GmbH</organization>
+			<organizationUrl>http://www.imixs.com</organizationUrl>
+			<roles>
+				<role>developer</role>
+				<role>testing</role>
+			</roles>
+			<timezone>2</timezone>
+		</developer>
+
+	</developers>
+
+
+	<properties>
+		<!-- Build Time -->
+		<org.imixs.build.timestamp>${maven.build.timestamp}</org.imixs.build.timestamp>
+		<maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
+
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
+		<failOnMissingWebXml>false</failOnMissingWebXml>
+		<custom.webResources>src/main/webapp</custom.webResources>
+		<custom.unpackTypes>war</custom.unpackTypes>
+	</properties>
+
+	<build>
+		<resources>
+			<!-- enable resource filtering for multi language version -->
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<plugins>
+			<!-- use JDK settings for compiling -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<configuration>
+					<source>11</source>
+					<target>11</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.2.0</version>
+				<configuration>
+					<webResources>
+						<resource>
+							<filtering>true</filtering>
+							<!-- this is relative to the pom.xml directory -->
+							<directory>${custom.webResources}</directory>
+							<includes>
+								<include>**/WEB-INF/*</include>
+								<include>/src/main/resources/*</include>
+								<!-- include any other file types you want to filter -->
+							</includes>
+						</resource>
+					</webResources>
+				</configuration>
+			</plugin>
+
+
+
+			<!-- relase management -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+			</plugin>
+
+		</plugins>
+
+		<finalName>bpmn-process-manager</finalName>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.eclipse.microprofile</groupId>
+			<artifactId>microprofile</artifactId>
+			<version>3.2</version>
+			<type>pom</type>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>jakarta.platform</groupId>
+			<artifactId>jakarta.jakartaee-api</artifactId>
+			<version>9.0.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- swagger -->
+		<dependency>
+			<groupId>org.microprofile-ext.openapi-ext</groupId>
+			<artifactId>openapi-ui</artifactId>
+			<version>1.1.5</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>2.3.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+	</dependencies>
+</project>
