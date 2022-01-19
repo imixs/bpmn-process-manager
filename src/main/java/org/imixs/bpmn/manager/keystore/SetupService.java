@@ -29,15 +29,20 @@
 package org.imixs.bpmn.manager.keystore;
 
 
+import java.io.IOException;
 import java.nio.file.AccessDeniedException;
+import java.security.KeyStore;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.CertificateException;
 import java.util.Optional;
 import java.util.logging.Logger;
 
-import jakarta.annotation.PostConstruct;
+import javax.annotation.PostConstruct;
 
-import jakarta.ejb.Singleton;
-import jakarta.ejb.Startup;
-import jakarta.inject.Inject;
+import javax.ejb.Singleton;
+import javax.ejb.Startup;
+import javax.inject.Inject;
 
 import org.eclipse.microprofile.config.inject.ConfigProperty;
  
@@ -61,6 +66,8 @@ public class SetupService {
     @ConfigProperty(name = "model.default.data")
     private Optional<String> modelDefaultData;
 
+    @Inject
+    private KeystoreService keystoreService;
   
     /**
      * This method start the system setup during deployment
@@ -77,9 +84,12 @@ public class SetupService {
         logger.info("/___/_/_/_/_//_\\_\\/___/   V1.0");
         logger.info("");
 
-        logger.info("...initalizing java keystore...");
-
-      
+       
+        //	keystoreService.load();
+        	
+			
+	
+        
 
 
     }

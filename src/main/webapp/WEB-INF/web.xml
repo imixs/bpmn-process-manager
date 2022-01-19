@@ -24,4 +24,48 @@
 	</servlet-mapping>
 	 -->
 
+	<security-constraint>
+        <web-resource-collection>
+            <web-resource-name>All resources</web-resource-name>
+            <description>Protects all resources</description>
+            <url-pattern>/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>user</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+            <transport-guarantee>NONE</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+
+    <security-role>
+        <description>Role required to log in to the Application</description>
+        <role-name>user</role-name>
+    </security-role>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>All resources</web-resource-name>
+            <description>Protects all resources</description>
+            <url-pattern>/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>user</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+            <transport-guarantee>NONE</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+
+    <security-role>
+        <description>Role required to log in to the Application</description>
+        <role-name>user</role-name>
+    </security-role>
+
+<!-- 
+	<login-config>
+		<auth-method>BASIC</auth-method>
+		
+	</login-config>
+    -->
+    
 </web-app>

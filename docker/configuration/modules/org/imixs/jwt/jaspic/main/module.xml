@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+
+<module xmlns="urn:jboss:module:1.1" name="org.imixs.jwt.jaspic">
+
+    <resources>
+        <resource-root path="imixs-jwt-1.1.0.jar"/>
+    </resources>
+
+    <dependencies>
+        <module name="javax.servlet.api"/>
+        <module name="javaee.api" />
+        <module name="javax.security.auth.message.api"/>
+    </dependencies>
+</module>

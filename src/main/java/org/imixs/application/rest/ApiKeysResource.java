@@ -13,9 +13,9 @@ import org.imixs.bpmn.manager.keystore.SetupService;
  *
  * @author rsoika
  */
-@Path("ping")
-public class PingResource {
-	private static Logger logger = Logger.getLogger(PingResource.class.getName());
+@Path("keys")
+public class ApiKeysResource {
+	private static Logger logger = Logger.getLogger(ApiKeysResource.class.getName());
 
 	@Inject
 	@ConfigProperty(name = "mail.host", defaultValue = "host@mail.com")
@@ -28,9 +28,9 @@ public class PingResource {
 	
 	@GET
 	public String ping() {
-		logger.info("...ping.... env mail.host=" + mail_host);
+		logger.info("...ping.... API Keys2" );
 
-		return "Ping JakartaEE 9 " + System.currentTimeMillis();
+		return "Ping API Key Management2" + System.currentTimeMillis();
 	}
 
 }
