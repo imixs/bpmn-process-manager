@@ -7,7 +7,6 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
 import org.eclipse.microprofile.config.inject.ConfigProperty;
-import org.imixs.bpmn.manager.keystore.SetupService;
  
 /**
  *
@@ -21,9 +20,6 @@ public class PingResource {
 	@ConfigProperty(name = "mail.host", defaultValue = "host@mail.com")
 	private String mail_host;
 
-	@Inject 
-	SetupService setupService;
-	
 	
 	
 	@GET

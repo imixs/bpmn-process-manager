@@ -114,7 +114,7 @@
 					<password>adminadmin</password>
 					<server-args>
 						<!-- activate microprofile -->
-						<server-arg>-c=standalone-full.xml</server-arg>
+						<server-arg>-c=standalone-imixs.xml</server-arg>
 					</server-args>
 				</configuration>
 			</plugin>
@@ -162,15 +162,6 @@
 			<version>1.1.0</version>
 		</dependency>
 
-		<!-- bouncycastle -->
-		<dependency>
-			<groupId>org.bouncycastle</groupId>
-			<artifactId>bcpkix-jdk15on</artifactId>
-			<version>${bouncycastle.version}</version>
-			<scope>compile</scope>
-		</dependency>
-		
-		
 		
 		<!-- Testing -->
 		<dependency>

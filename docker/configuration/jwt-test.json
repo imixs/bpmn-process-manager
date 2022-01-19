@@ -1,9 +1,0 @@
-{
-	
-	sub: "admin",
-	"displayname": "Administrator",
-	"groups": [
-		"xxx",
-		"yyy" 
-	]
-}
