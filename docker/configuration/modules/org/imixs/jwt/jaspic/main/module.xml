@@ -3,7 +3,7 @@
 <module xmlns="urn:jboss:module:1.1" name="org.imixs.jwt.jaspic">
 
     <resources>
-        <resource-root path="imixs-jwt-1.1.0.jar"/>
+        <resource-root path="imixs-jwt-1.1.1-SNAPSHOT.jar"/>
     </resources>
 
     <dependencies>

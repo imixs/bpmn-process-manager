@@ -6,4 +6,7 @@ COPY ./docker/configuration/modules/ /opt/jboss/wildfly/modules/
 # adapt stanalone configuraiton
 COPY ./docker/configuration/standalone-imixs.xml /opt/jboss/wildfly/standalone/configuration/standalone-imixs.xml
 # Run with microprofiles
-CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0", "-c","standalone-imixs.xml"]
+#CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0", "-c","standalone-imixs.xml"]
+
+# Run in Debug Mode
+CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0", "-c","standalone-imixs.xml", "--debug", "*:8787"]

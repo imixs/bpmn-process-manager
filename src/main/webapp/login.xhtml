@@ -1,0 +1,41 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:i="http://xmlns.jcp.org/jsf/composite/imixs"
+	template="/layout/template.xhtml">
+
+	<ui:define name="content">
+
+		<script type="text/javascript">
+			/*<![CDATA[*/
+
+			// set json objects with monitoring datasets 
+			$(document).ready(function() {
+
+			});
+
+			/*]]>*/
+		</script>
+
+
+		<div class="container" style="width: 100%;">
+			<f:view>
+				<h:form>
+					<h2>Login</h2>
+					<p>Please enter your API secret. You will be automatically logged in with Administrative access. 
+
+					 <br /> Password:
+						<h:inputSecret value="#{loginController.secret}"/>
+						
+						
+						<h:commandButton action="#{loginController.login()}"></h:commandButton>
+					</p>
+				</h:form>
+			</f:view>
+		</div>
+		
+		
+	</ui:define>
+</ui:composition>
