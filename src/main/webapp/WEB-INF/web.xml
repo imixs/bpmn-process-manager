@@ -13,6 +13,16 @@
 		<param-value>Development</param-value>
 	</context-param>
 	
+	
+	
+	<error-page>
+    	<error-code>401</error-code>
+    	<location>/login.xhtml</location>
+	</error-page>
+	<error-page>
+    	<error-code>403</error-code>
+    	<location>/login.xhtml</location>
+	</error-page>
 
 	<security-constraint>
         <web-resource-collection>

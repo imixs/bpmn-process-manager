@@ -28,7 +28,6 @@
 package org.imixs.application.security;
 
 import java.io.Serializable;
-import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
 import javax.crypto.SecretKey;
@@ -55,145 +54,132 @@ import org.imixs.jwt.JWTException;
 @RequestScoped
 public class LoginController implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	private static Logger logger = Logger.getLogger(LoginController.class.getName());
+    private static Logger logger = Logger.getLogger(LoginController.class.getName());
 
-	private String token;
-	private String secret;
+    private String token;
+    private String secret;
 
-	public LoginController() {
-		super();
-	}
+    public LoginController() {
+        super();
+    }
 
-	public String login() throws JWTException {
-		
-		return generateToken();
-	}
+    public String login() throws JWTException {
 
-	public String getToken() {
-		return token;
-	}
+        return generateToken();
+    }
 
-	public void setToken(String token) {
-		this.token = token;
-	}
+    public String getToken() {
+        return token;
+    }
 
-	public String getSecret() {
-		return secret;
-	}
+    public void setToken(String token) {
+        this.token = token;
+    }
 
-	public void setSecret(String secret) {
-		this.secret = secret;
-	}
-	
-	
-	public boolean isAuthenticated() {
-		return false;
-	}
+    public String getSecret() {
+        return secret;
+    }
 
-	/**
-	 * Helper Method generating a JWT token
-	 * @return
-	 * @throws JWTException
-	 */
-	private String generateToken() throws JWTException {
-		String token=null;
-		// generate a admin payload
-		String payload = "{\"sub\":\"admin\",\"displayname\":\"Administrator\",\"groups\":[\"user\",\"yyy\"]}";
+    public void setSecret(String secret) {
+        this.secret = secret;
+    }
 
-		logger.info("...generating new access token for " + payload);
-		
-		
-	//	try {
-			// We need a signing key...
-			SecretKey secretKey = HMAC.createKey(JWSAlgorithm.JDK_HS256, secret.getBytes());
+    public boolean isAuthenticated() {
+        return false;
+    }
 
-			JWTBuilder builder;
+    /**
+     * Helper Method generating a JWT token
+     * 
+     * @return
+     * @throws JWTException
+     */
+    private String generateToken() throws JWTException {
+        String token = null;
+        // generate a admin payload
+        String payload = "{\"sub\":\"admin\",\"displayname\":\"Administrator\",\"groups\":[\"user\",\"yyy\"]}";
 
-			builder = new JWTBuilder().setKey(secretKey).setHeader(JWTBuilder.DEFAULT_HEADER).setPayload(payload)
-					.sign();
+        logger.info("...generating new access token for " + payload);
 
-			token= builder.getToken();
-			logger.info("token=" + builder.getToken());
-//		} catch (JWTException e) {
-//			e.printStackTrace();
-//		}
-			
-			// set bearer token
-//			FacesContext.getCurrentInstance()
-//            .getExternalContext()
-//            .getRequestMap()
-//            .put("Authorization","Bearer "+token);
+        // try {
+        // We need a signing key...
+        SecretKey secretKey = HMAC.createKey(JWSAlgorithm.JDK_HS256, secret.getBytes());
 
-			
-			// set cookie
-			setCookie("jwt",token, (int) TimeUnit.HOURS.toSeconds(1));
-			
-		//return "/pages/welcome.xhtml?jwt="+token;
-		
-		return "/pages/welcome.xhtml";
+        JWTBuilder builder;
 
-	}
+        builder = new JWTBuilder().setKey(secretKey).setHeader(JWTBuilder.DEFAULT_HEADER).setPayload(payload).sign();
 
-	
-	/**
-	 * Helper method to set a cookie
-	 * @param name
-	 * @param value
-	 * @param expiry
-	 */
-	public void setCookie(String name, String value, int expiry) {
+        token = builder.getToken();
+        logger.info("token=" + builder.getToken());
 
-	    FacesContext facesContext = FacesContext.getCurrentInstance();
+        // set cookie - expire time 1 day
+        setCookie("jwt", token, 3600*24);
 
-	    HttpServletRequest request = (HttpServletRequest) facesContext.getExternalContext().getRequest();
-	    Cookie cookie = null;
+        return "/pages/welcome.xhtml?faces-redirect=true";
 
-	    Cookie[] userCookies = request.getCookies();
-	    if (userCookies != null && userCookies.length > 0 ) {
-	        for (int i = 0; i < userCookies.length; i++) {
-	            if (userCookies[i].getName().equals(name)) {
-	                cookie = userCookies[i];
-	                break;
-	            }
-	        }
-	    }
+    }
 
-	    if (cookie != null) {
-	        cookie.setValue(value);
-	    } else {
-	        cookie = new Cookie(name, value);
-	        cookie.setPath(request.getContextPath());
-	    }
+    /**
+     * Helper method to set a cookie
+     * 
+     * @param name
+     * @param value
+     * @param expiry - max age in seconds
+     */
+    public void setCookie(String name, String value, int expiry) {
 
-	    cookie.setMaxAge(expiry);
+        FacesContext facesContext = FacesContext.getCurrentInstance();
 
-	    HttpServletResponse response = (HttpServletResponse) facesContext.getExternalContext().getResponse();
-	    response.addCookie(cookie);
-	  }
+        HttpServletRequest request = (HttpServletRequest) facesContext.getExternalContext().getRequest();
+        Cookie cookie = null;
 
-	/**
-	 * helper method to read a cookie
-	 * @param name
-	 * @return
-	 */
-	  public Cookie getCookie(String name) {
+        Cookie[] userCookies = request.getCookies();
+        if (userCookies != null && userCookies.length > 0) {
+            for (int i = 0; i < userCookies.length; i++) {
+                if (userCookies[i].getName().equals(name)) {
+                    cookie = userCookies[i];
+                    break;
+                }
+            }
+        }
 
-	    FacesContext facesContext = FacesContext.getCurrentInstance();
+        if (cookie != null) {
+            cookie.setValue(value);
+        } else {
+            cookie = new Cookie(name, value);
+            cookie.setPath(request.getContextPath());
+        }
 
-	    HttpServletRequest request = (HttpServletRequest) facesContext.getExternalContext().getRequest();
-	    Cookie cookie = null;
+        cookie.setMaxAge(expiry);
 
-	    Cookie[] userCookies = request.getCookies();
-	    if (userCookies != null && userCookies.length > 0 ) {
-	        for (int i = 0; i < userCookies.length; i++) {
-	            if (userCookies[i].getName().equals(name)) {
-	                cookie = userCookies[i];
-	                return cookie;
-	            }
-	        }
-	    }
-	    return null;
-	  }
+        HttpServletResponse response = (HttpServletResponse) facesContext.getExternalContext().getResponse();
+        response.addCookie(cookie);
+    }
+
+    /**
+     * helper method to read a cookie
+     * 
+     * @param name
+     * @return
+     */
+    public Cookie getCookie(String name) {
+
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+
+        HttpServletRequest request = (HttpServletRequest) facesContext.getExternalContext().getRequest();
+        Cookie cookie = null;
+
+        Cookie[] userCookies = request.getCookies();
+        if (userCookies != null && userCookies.length > 0) {
+            for (int i = 0; i < userCookies.length; i++) {
+                if (userCookies[i].getName().equals(name)) {
+                    cookie = userCookies[i];
+                    return cookie;
+                }
+            }
+        }
+        return null;
+    }
 }
