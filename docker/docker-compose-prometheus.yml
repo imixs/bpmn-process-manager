@@ -1,0 +1,52 @@
+version: "3.1"
+services:
+
+  db:
+    image: postgres:9.6.1
+    environment:
+      POSTGRES_PASSWORD: adminadmin
+      POSTGRES_DB: office
+    volumes: 
+      - dbdata:/var/lib/postgresql/data
+  app:
+    image: imixs/bpmn-processmanager
+    depends_on:
+      - db
+    environment:
+      TZ: "Europe/Berlin" 
+      JAVA_OPTS: "-Dnashorn.args=--no-deprecation-warning"
+      MAILGATEWAY: "localhost"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "adminadmin"
+      POSTGRES_CONNECTION: "jdbc:postgresql://db/office"
+      METRICS_ENABLED: "true"
+    ports:
+      - "8080:8080"
+      - "9990:9990"
+      - "8787:8787"
+    #volumes:
+    #    - ./deployments:/opt/jboss/wildfly/standalone/deployments/
+
+#  imixsadmin:
+#    image: imixs/imixs-admin
+#    ports:
+#      - "8888:8080"
+      
+  prometheus:
+    image: prom/prometheus:v2.30.4
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml 
+      - prometheusdata:/prometheus/
+
+  
+  grafana:
+    image: grafana/grafana:latest
+    ports: 
+      - "3000:3000" 
+
+
+volumes:
+  prometheusdata:
+  dbdata:  

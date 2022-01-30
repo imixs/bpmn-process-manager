@@ -60,6 +60,8 @@ public class LoginController implements Serializable {
 
     private String token;
     private String secret;
+    private String user;
+    private String group;
 
     public LoginController() {
         super();
@@ -86,6 +88,22 @@ public class LoginController implements Serializable {
         this.secret = secret;
     }
 
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public String getGroup() {
+        return group;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
+    }
+
     public boolean isAuthenticated() {
         return false;
     }
@@ -99,7 +117,7 @@ public class LoginController implements Serializable {
     private String generateToken() throws JWTException {
         String token = null;
         // generate a admin payload
-        String payload = "{\"sub\":\"admin\",\"displayname\":\"Administrator\",\"groups\":[\"user\",\"yyy\"]}";
+        String payload = "{\"sub\":\"" + getUser() + "\",\"groups\":[\"" + getGroup() + "\"]}";
 
         logger.info("...generating new access token for " + payload);
 

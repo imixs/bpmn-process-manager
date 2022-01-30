@@ -24,14 +24,45 @@
 			<f:view>
 				<h:form>
 					<h2>Login</h2>
-					<p>Please enter your API secret. You will be automatically logged in with Administrative access. 
-
-					 <br /> Password:
-						<h:inputSecret value="#{loginController.secret}"/>
+					
+					
+					<dl>
+						<dt>User</dt>
+						<dd>
+							<h:inputText value="#{loginController.user}"/>
+						</dd>
+					
+					</dl>
+					
+					<dl>
+					
+						<dt>Group: </dt>
+						<dd><h:selectOneMenu value="#{loginController.group}">
+							   	<f:selectItem itemValue="org.imixs.ACCESSLEVEL.MANAGERACCESS" itemLabel="org.imixs.ACCESSLEVEL.MANAGERACCESS" />
+							   	<f:selectItem itemValue="org.imixs.ACCESSLEVEL.EDITORACCESS" itemLabel="org.imixs.ACCESSLEVEL.EDITORACCESS" />
+							   	<f:selectItem itemValue="org.imixs.ACCESSLEVEL.AUTHORACCESS" itemLabel="org.imixs.ACCESSLEVEL.AUTHORACCESS" />
+							   	<f:selectItem itemValue="org.imixs.ACCESSLEVEL.READACCESS" itemLabel="org.imixs.ACCESSLEVEL.READACCESS" />
+							</h:selectOneMenu>
+						</dd>
+					
+					</dl>
+					
+					
+				
+					<hr />
+					<p>Please enter your API secret. You will be automatically logged in with Administrative access. </p>
+					
+					<dl>
+					
+						<dt>Password:</dt>
+						<dd>
+							<h:inputSecret value="#{loginController.secret}"/>
+						</dd>
+					</dl>
 						
-						
-						<h:commandButton action="#{loginController.login()}"></h:commandButton>
-					</p>
+					<br />
+					<h:commandButton action="#{loginController.login()}" value="Login"></h:commandButton>
+					
 				</h:form>
 			</f:view>
 		</div>

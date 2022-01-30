@@ -42,12 +42,6 @@ body, html {
 	text-decoration: none;
 }
 
-#imixs-header .container {
-	xxflex-direction: row;
-	xxflex-grow: 4;
-	
-	width: 33.3333%;
-}
 
 #imixs-header .container.title a {
 	font-weight: bold;
@@ -155,9 +149,6 @@ font-size: 1.5em;
 	color: inherit;
 }
 
-.content {
-	
-}
 
 .container .typcn {
 	margin-right: 10px;
@@ -317,12 +308,6 @@ span.tooltip:hover span.tip {
 	padding: 16px;
 }
 
-input[type="text"]:focus, input[type="password"]:focus, textarea:focus,
-	select:focus {
-	border: 1px solid #145267;
-	border-radius: 3px;
-}
-
 table {
 	font-size: 14px;
 }
@@ -342,6 +327,21 @@ table, td, th {
 input[type="button"]:hover, input[type="submit"]:hover, .button:hover, a.button:hover, .imixs-button:hover {
     background: #145267;
     color: #ddd !important;
+}
+
+
+/* Form Inputs */
+input[type="text"], input[type="password"], textarea, select {	
+	color: #263544;
+	border: none;
+	border-radius: 0;
+	border-bottom: 3px solid #263544;
+	outline:none;
+}
+
+
+input[type="text"]:focus, input[type="password"]:focus, textarea:focus, select:focus {
+	border-color: #FCB802;
 }
 
 
